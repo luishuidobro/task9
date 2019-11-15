@@ -1,0 +1,75 @@
+$white: #ffffff;
+$bg-color: #414452;
+.bg {
+    width: 1280px;
+    height: 64px;
+    background-color: $bg-color;
+    display: inline-table;
+    // flex-direction: column;
+  }
+
+.ic_exit {
+  width: 16px;
+  height: 12px;
+  object-fit: contain;
+  background-color: $bg-color;
+  margin-left: 20px;
+}
+
+.ic_user {
+  width: 10px;
+  height: 12px;
+  object-fit: contain;
+  background-color:$bg-color;
+}
+
+.Logo {
+  width: 140px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.Log-off {
+  width: 40px;
+  height: 18px;
+  font-family: SourceSansPro;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $white;
+  margin-left: 5px;
+}
+
+.User-login {
+  width: 59px;
+  height: 18px;
+  font-family: SourceSansPro;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: right;
+  color: $white;
+  margin-left: 5px;
+}
+
+.User-login-container {
+  width: 169px;
+  height: 18px;
+  display: flex;
+  padding: 27px 39px 25px 1072px;
+  align-items: center;
+}
+
+.Logo-container {
+  width: 140px;
+  height: 64px;
+  display: flex;
+  padding: 0 1055px 0 85px;
+  align-items: center;
+}

@@ -1,0 +1,5 @@
+<div class="List-course">
+    <app-course-item *ngFor="let course of courseItems" 
+    [course] = "course" 
+    (myDeletedCourse)="showDeleteMessage($event)"></app-course-item>
+</div>

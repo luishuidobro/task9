@@ -1,0 +1,63 @@
+$white: #ffffff;
+$color-button: #9bc837;
+$input-font-color: #c0c3ce;
+input {
+    width: 360px;
+    height: 48px;
+    border-radius: 3px;
+    border: solid 1px #d9dbe3;
+    background-color: $white;
+    font-family: SourceSansPro;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: 0.22px;
+    color: $input-font-color;
+}
+
+.search-button {
+    width: 100px;
+    height: 48px;
+    background-color: $color-button;
+    margin-left: 6px;
+    font-family: SourceSansPro;
+    font-size: 18px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.56;
+    letter-spacing: -0.13px;
+    color: $white;
+}
+
+.Mask {
+    width: 138px;
+    height: 36px;
+    border-radius: 3px;
+    margin-left: 1057px;
+    background-color: #30b6dd;
+    font-family: SourceSansPro;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.57;
+    letter-spacing: -0.1px;
+    color: $white;
+    margin-bottom: 20px;
+}
+
+.Save {
+    width: 56px;
+    height: 46px;
+    font-family: SourceSansPro;
+    font-size: 18px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.56;
+    letter-spacing: -0.13px;
+    color: $white;
+}

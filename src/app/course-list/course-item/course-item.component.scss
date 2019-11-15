@@ -1,0 +1,104 @@
+$white: #ffffff;
+$cloudy-blue: #b9bdce;
+$slate-grey: #525462;
+$dark-sky-blue: #30b6dd;
+.h-28-min {
+    width: 49px;
+    height: 15px;
+    font-family: SourceSansPro;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $cloudy-blue;
+    margin-left: 370px;
+  }
+
+.edit-button {
+    width: 86px;
+    height: 24px;
+    border-radius: 3px;
+}
+
+.delete-button {
+  width: 86px;
+  height: 24px;
+  border-radius: 3px;
+  margin-left: 15px;
+}
+
+.-Nov-2018 {
+    width: 58px;
+    height: 15px;
+    font-family: SourceSansPro;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $cloudy-blue;
+    margin-left: 30px;
+  }
+
+.Learn-about-where-yo {
+    width: 801px;
+    height: 77px;
+    font-family: SourceSansPro;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: $slate-grey;
+    margin-right: 740px;
+  }
+
+.Rectangle {
+    width: 1110px;
+    height: 163px;
+    border-radius: 8px;
+    box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+    background-color: $white;
+    margin-left: 85px;
+    margin-bottom: 20px;
+}
+
+.Video-Course-1-Name {
+    width: 263px;
+    height: 30px;
+    font-family: SourceSansPro;
+    font-size: 24px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: var(--dark);
+    margin-left: 24px;
+  }
+
+.title {
+  padding-top: 24px;
+}
+
+.description {
+  padding-left: 24px;
+}
+
+button {
+    width: 75px;
+    height: 24px;
+    background-color: $dark-sky-blue;
+    font-family: SourceSansPro;
+    font-size: 12px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.83;
+    letter-spacing: -0.09px;
+    color: $white;
+}
