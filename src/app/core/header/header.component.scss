@@ -4,8 +4,6 @@ $bg-color: #414452;
     width: 1280px;
     height: 64px;
     background-color: $bg-color;
-    display: inline-table;
-    // flex-direction: column;
   }
 
 .ic_exit {
@@ -14,6 +12,7 @@ $bg-color: #414452;
   object-fit: contain;
   background-color: $bg-color;
   margin-left: 20px;
+  margin-top: 14px;
 }
 
 .ic_user {
@@ -21,6 +20,7 @@ $bg-color: #414452;
   height: 12px;
   object-fit: contain;
   background-color:$bg-color;
+  margin-top: 14px;
 }
 
 .Logo {
@@ -61,15 +61,15 @@ $bg-color: #414452;
 .User-login-container {
   width: 169px;
   height: 18px;
+  margin-left: 872px;
   display: flex;
-  padding: 27px 39px 25px 1072px;
-  align-items: center;
+  flex-direction: row;
 }
 
 .Logo-container {
   width: 140px;
   height: 64px;
   display: flex;
-  padding: 0 1055px 0 85px;
-  align-items: center;
+  flex-direction: row;
+  margin-left: 85px;
 }
