@@ -4,14 +4,14 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { CourseItemComponent } from './course-item/course-item.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
-
-
+import { PipesModule } from '../shared/pipes/pipes.module';
 
 @NgModule({
   declarations: [CourseListComponent, CourseItemComponent, SearchComponent],
   imports: [
     CommonModule,
     FormsModule,
+    PipesModule,
   ],
   exports: [
     CourseListComponent,

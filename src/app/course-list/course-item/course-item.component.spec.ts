@@ -24,10 +24,35 @@ describe('CourseItemComponent', () => {
       description: "Description for course 1"
     };
     fixture.detectChanges();
-
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display title correctly', () => {
+    const compiled = fixture.debugElement.nativeElement;
+
+    expect(compiled.querySelector('#title').textContent).toContain(component.course.title);
+  });
+
+  it('should display duration correctly', () => {
+    const compiled = fixture.debugElement.nativeElement;
+
+    expect(compiled.querySelector('#duration').textContent).toContain(component.course.duration);
+  });
+
+  xit('should display creationDate correctly', () => {
+    const compiled = fixture.debugElement.nativeElement;
+
+    expect(compiled.querySelector('#date').textContent)
+    .toContain((component.course.creationDate));
+  });
+
+  it('should display description correctly', () => {
+    const compiled = fixture.debugElement.nativeElement;
+
+    expect(compiled.querySelector('#description').textContent)
+    .toContain((component.course.description));
   });
 });

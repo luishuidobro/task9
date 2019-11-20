@@ -1,9 +1,13 @@
-<div class="List-course">
-    <app-course-item *ngFor="let course of courseItems" 
+<div class="List-course" *ngIf="courseItems.length > 0">
+    <app-course-item *ngFor="let course of courseItems | orderBy:'creationDate'" 
     [course] = "course" 
     (myDeletedCourse)="showDeleteMessage($event)"></app-course-item>
 </div>
 
-<div class="Rectangle">
+<div class="Rectangle" *ngIf="courseItems.length > 0">
     <p class="LOAD-MORE">LOAD MORE</p>
+</div>
+
+<div class="Rectangle" *ngIf="courseItems.length === 0">
+    <p class="NO-DATA">NO DATA FEEL FREE TO ADD NEW COURSE</p>
 </div>
