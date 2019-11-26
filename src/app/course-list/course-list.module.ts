@@ -5,6 +5,7 @@ import { CourseItemComponent } from './course-item/course-item.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 import { PipesModule } from '../shared/pipes/pipes.module';
+import { DirectivesModule } from '../shared/directives/directives.module';
 
 @NgModule({
   declarations: [CourseListComponent, CourseItemComponent, SearchComponent],
@@ -12,6 +13,7 @@ import { PipesModule } from '../shared/pipes/pipes.module';
     CommonModule,
     FormsModule,
     PipesModule,
+    DirectivesModule
   ],
   exports: [
     CourseListComponent,

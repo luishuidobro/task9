@@ -15,7 +15,7 @@ export class CourseItemComponent implements OnInit {
   }
 
   deleteItem(){
-    this.myDeletedCourse.emit('I deleted item with id: ' + this.course.id);
+    this.myDeletedCourse.emit(this.course.id);
   }
 
 }

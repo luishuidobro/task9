@@ -24,5 +24,8 @@ export class CourseListComponent implements OnChanges, OnInit {
 
   showDeleteMessage(event) {
     console.log(event);
+    if (window.confirm('Are sure you want to delete this item ?')){
+      this.courseService.removeItem(event);
+    }
   }
 }

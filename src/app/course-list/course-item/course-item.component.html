@@ -1,7 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-<div class="Rectangle" [ngClass]="{'highlight': course.topRated}">
+<div class="Rectangle" [appChangeBorder]="course.creationDate" [ngClass]="{'highlight': course.topRated}">
     <div class="row">
         <div>
             <div class="title">

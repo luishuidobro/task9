@@ -6,13 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseListModule } from './course-list/course-list.module';
 import { CoreModule } from './core/core.module';
-import { ChangeBorderDirective } from './change-border.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ChangeBorderDirective,
+    AppComponent
   ],
   imports: [
     BrowserModule,
