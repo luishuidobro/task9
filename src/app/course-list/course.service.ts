@@ -52,18 +52,16 @@ export class CourseService {
   }
 
   getItemById(id: number) {
-    return this.courses.filter(item => item.id === id);
+    return this.courses.find(item => item.id === id);
   }
 
-  updateCourse(course: Course) {
-    if (this.courses.filter(item => item.id === course.id)) {
-      this.courses[course.id - 1] = course;
-    }
+  updateCourse(newCourse: Course) {
+    let itemIndex = this.courses.findIndex(item => item.id === newCourse.id);
+    this.courses[itemIndex] = newCourse;
   }
 
   removeItem(courseId: number) {
-    if (courseId > 0 && (this.courses.length <= courseId - 1)) {
-      this.courses.splice(courseId - 1, 1);
-    }
+    let itemIndex = this.courses.findIndex(item => item.id === courseId);
+    this.courses.splice(itemIndex, 1);
   }
 }

@@ -1,9 +1,12 @@
 <div class="main-container">
     <app-header></app-header>
-    <app-breadcumbs></app-breadcumbs>
-    <app-search></app-search>
-    <div class="container">
-        <app-course-list></app-course-list>
+    <app-login *ngIf="!isAutenticated"></app-login>
+    <div *ngIf="isAutenticated">
+        <app-breadcumbs></app-breadcumbs>
+        <app-search></app-search>
+        <div class="container">
+            <app-course-list></app-course-list>
+        </div>
     </div>
     <app-footer></app-footer>
 </div>

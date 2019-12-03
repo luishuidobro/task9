@@ -1,0 +1,101 @@
+
+$battleship-grey: #6c7283;
+$slate-grey: #525462;
+$dark: #2c2f3c;
+$pale-grey: #d9dbe3;
+$soft-blue-two: #5681ee;
+$cool-grey: #a8a9b4;
+.bg {
+    width: 368px;
+    height: 298px;
+    border-radius: 6px;
+    box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+    background-color: #ffffff;
+    margin-left: 456px;
+    margin-top: 100px;
+  }
+
+  .Login {
+    width: 58px;
+    height: 30px;
+    font-family: SourceSansPro;
+    font-size: 24px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: $dark;
+    margin-left: 23px;
+    margin-top: 24px;
+  }
+
+  input {
+    width: 320px;
+    height: 36px;
+    border-radius: 3px;
+    border: solid 1px $pale-grey;
+    background-color: #ffffff;
+    margin-left: 23px;
+  }
+
+  .Tag-it-component {
+    width: 126px;
+    height: 17px;
+    font-family: SourceSansPro;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.22px;
+    color: $slate-grey;
+    margin-left: 23px;
+  }
+
+  .required {
+    width: 50px;
+    height: 18px;
+    font-family: SourceSansPro;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.19px;
+    text-align: right;
+    color: $battleship-grey;
+    margin-left: 200px;
+  }
+
+  .Forgot-password {
+    width: 92px;
+    height: 36px;
+    font-family: SourceSansPro;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.19px;
+    color: $soft-blue-two;
+    margin-left: 23px;
+  }
+
+  button {
+    width: 68px;
+    height: 36px;
+    background-color: $pale-grey;
+    margin-left: 276px;
+  }
+
+  .Save {
+    font-family: SourceSansPro;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.57;
+    letter-spacing: -0.1px;
+    color: $cool-grey;
+  }

@@ -1,0 +1,14 @@
+<div class="bg">
+    <p class="Login">Login</p>
+    <span class="Tag-it-component">E-mail:</span>
+    <span class="required">*required</span>
+    <input type="text" id="email" [(ngModel)]="email" placeholder="Enter e-mail">
+    <span class="Tag-it-component">Password:</span>
+    <span class="required">*required</span>
+    <input type="text" id="password" [(ngModel)]="password" placeholder="Enter password">
+    <div>
+        <span class="Forgot-password">Forgot-password?</span>
+        <button class="Save" type="button" (click)="Login()">Login</button>
+    </div>
+</div>
+
