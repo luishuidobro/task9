@@ -1,0 +1,33 @@
+<div class="Rectangle">
+    <p class="New-course">New Course</p>
+    <span class="Tag-it-component">Title:</span>
+    <span class="required margin-title">*required</span>
+    <input type="text" id="title" [(ngModel)]="title" 
+        placeholder="Text input" class="Title-input">
+    <span class="Tag-it-component">Description:</span>
+    <span class="required margin-description">*required</span>
+    <input type="text" id="description" [(ngModel)]="description" 
+        placeholder="Add description" class="Description-input">
+    <span class="Tag-it-component">Duration:</span>
+    <span class="required margin-duration">*required</span>
+    <br>
+    <input type="text" id="duration" [(ngModel)]="duration" 
+        placeholder="minutes" class="Duration-input">
+    <br>
+    <span class="Tag-it-component">Date:</span>
+    <span class="required margin-date">*required</span>
+    <br>
+    <input type="date" id="date" [(ngModel)]="date" 
+        placeholder="mm-dd-yyyy" class="Date-input">
+    <br>
+    <span class="Tag-it-component">Authors:</span>
+    <span class="required margin-authors">*required</span>
+    <br>
+    <input type="text" id="authors" [(ngModel)]="authors" 
+        placeholder="Start typing" class="Authors-input">
+    <div>
+        <br>
+        <button class="Cancel-button" type="button" (click)="Cancel()">Cancel</button>
+        <button class="Save-button" type="button" (click)="AddNewCourse()">Save</button>
+    </div>
+</div>

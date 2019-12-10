@@ -6,18 +6,20 @@ import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 import { PipesModule } from '../shared/pipes/pipes.module';
 import { DirectivesModule } from '../shared/directives/directives.module';
+import { NewCourseComponent } from './new-course/new-course.component';
 
 @NgModule({
-  declarations: [CourseListComponent, CourseItemComponent, SearchComponent],
+  declarations: [CourseListComponent, CourseItemComponent, SearchComponent, NewCourseComponent],
   imports: [
     CommonModule,
     FormsModule,
     PipesModule,
-    DirectivesModule
+    DirectivesModule,
   ],
   exports: [
     CourseListComponent,
     SearchComponent,
+    NewCourseComponent,
   ]
 })
 export class CourseListModule { }

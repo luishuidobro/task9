@@ -1,0 +1,131 @@
+$battleship-grey: #6c7283;
+$slate-grey: #525462;
+$dark: #2c2f3c;
+$pale-grey: #d9dbe3;
+$soft-blue-two: #5681ee;
+$cool-grey: #a8a9b4;
+$sick-green: #9bc837;
+.Rectangle {
+    width: 731px;
+    height: 590px;
+    border-radius: 8px;
+    box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+    background-color: #ffffff;
+    margin-right: 275px;
+    margin-left: 274px;
+    padding: 24px;
+  }
+
+  .New-course {
+    width: 200px;
+    height: 30px;
+    font-family: SourceSansPro;
+    font-size: 24px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: $dark;
+  }
+
+  .Tag-it-component {
+    width: 269px;
+    height: 17px;
+    font-family: SourceSansPro;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.22px;
+    color: $slate-grey;
+  }
+
+  .required {
+    width: 50px;
+    height: 18px;
+    font-family: SourceSansPro;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.19px;
+    text-align: right;
+    color: $battleship-grey;
+  }
+
+  .margin-title {
+    margin-left: 600px;
+  }
+
+  .margin-description {
+    margin-left: 560px;
+  }
+
+  .margin-duration {
+    margin-left: 45px;
+  }
+
+  .margin-date {
+    margin-left: 70px;
+  }
+
+  .margin-authors {
+    margin-left: 210px;
+  }
+
+  .Title-input {
+    width: 683px;
+    height: 36px;
+    border-radius: 3px;
+    border: solid 1px $pale-grey;
+    background-color: #ffffff;
+  }
+
+  .Description-input {
+    width: 683px;
+    height: 108px;
+    border-radius: 3px;
+    border: solid 1px $pale-grey;
+    background-color: #ffffff;
+  }
+
+  .Duration-input {
+    width: 150px;
+    height: 36px;
+    border-radius: 3px;
+    border: solid 1px $pale-grey;
+    background-color: #ffffff;
+  }
+
+  .Date-input {
+    width: 150px;
+    height: 36px;
+    border-radius: 3px;
+    border: solid 1px $pale-grey;
+    background-color: #ffffff;
+  }
+
+  .Authors-input {
+    width: 312px;
+    height: 36px;
+    border-radius: 3px;
+    border: solid 1px $pale-grey;
+    background-color: #ffffff;
+  }
+
+  .Save-button {
+    width: 64px;
+    height: 36px;
+    background-color: $sick-green;
+    margin-left: 12px;
+  }
+
+  .Cancel-button {
+      width: 76px;
+      height: 36px;
+      background-color: $pale-grey;
+      margin-left: 555px;
+  }
