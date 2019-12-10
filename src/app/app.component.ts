@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { AuthorizacionService } from "./core/authorization_service"
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +12,19 @@ export class AppComponent implements OnInit, OnChanges{
 
   isAutenticated: boolean = false;
 
-  constructor(private authorizationService: AuthorizacionService) {
+  constructor(private authorizationService: AuthorizacionService,
+    private router: Router) {
   }
 
   ngOnInit(){
     console.log(this.authorizationService.getUserInfo);
     this.isAutenticated = this.authorizationService.isAuthenticated();
+    this.router.navigate(['courses']);
   }
 
   ngOnChanges() {
     console.log(this.authorizationService.getUserInfo);
     this.isAutenticated = this.authorizationService.isAuthenticated();
+    this.router.navigate(['courses']);
   }
 }

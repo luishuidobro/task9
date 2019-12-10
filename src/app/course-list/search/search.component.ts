@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
   }
 
   addCourse() {
-    this.router.navigate(['courses','add']);
+    this.router.navigate(['courses/','new']);
   }
 
 }

@@ -7,10 +7,12 @@ import { AuthorizacionService } from "../authorization_service"
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isAutenticated: boolean = false;
 
   constructor(private authorizationService: AuthorizacionService) { }
 
   ngOnInit() {
+    this.isAutenticated = this.authorizationService.isAuthenticated();
   }
 
   Logout() {

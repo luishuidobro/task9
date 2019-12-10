@@ -2,7 +2,7 @@
     <div class="Logo-container">
         <img src="assets/img/logo.png" srcset="assets/img/logo@2x.png 2x, 
         assets/img/logo@3x.png 3x" class="Logo">
-        <div class="User-login-container">
+        <div class="User-login-container" *ngIf="isAutenticated">
             <img src="assets/img/ic-user.svg" class="ic_user">
             <p class="User-login">User login</p>
             <img src="assets/img/ic-exit.svg" class="ic_exit" (click)="Logout()">

@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import {AppComponent} from './app.component';
 import { NewCourseComponent } from './course-list/new-course/new-course.component';
 import { CourseListComponent } from './course-list/course-list/course-list.component';
+import { CourseItemComponent } from './course-list/course-item/course-item.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
+import { AuthGuard } from './core/auth.guard';
 
 
 const routes: Routes = [
@@ -12,13 +15,28 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'courses', 
+    path: 'courses',
+    canActivate: [AuthGuard],
     component: CourseListComponent
   },
   {
-    path: 'courses/:add',
+    path: 'courses/new',
+    canActivate: [AuthGuard],
     component: NewCourseComponent
   },
+  {
+    path: 'courses/:id',
+    canActivate: [AuthGuard],
+    component: CourseItemComponent
+  },
+  {
+    path: '404', 
+    component: NotFoundComponent
+  },
+  {
+    path: '**', 
+    redirectTo: '/404'
+  }
 ];
 
 @NgModule({
