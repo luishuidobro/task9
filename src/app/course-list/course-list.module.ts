@@ -6,20 +6,22 @@ import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 import { PipesModule } from '../shared/pipes/pipes.module';
 import { DirectivesModule } from '../shared/directives/directives.module';
-import { NewCourseComponent } from './new-course/new-course.component';
+import { CoreModule } from '../core/core.module';
+import { DateComponent } from './date/date.component';
+import { DurationComponent } from './duration/duration.component';
 
 @NgModule({
-  declarations: [CourseListComponent, CourseItemComponent, SearchComponent, NewCourseComponent],
+  declarations: [CourseListComponent, CourseItemComponent, SearchComponent, DateComponent, DurationComponent],
   imports: [
     CommonModule,
     FormsModule,
     PipesModule,
     DirectivesModule,
+    CoreModule,
   ],
   exports: [
     CourseListComponent,
     SearchComponent,
-    NewCourseComponent,
   ]
 })
 export class CourseListModule { }

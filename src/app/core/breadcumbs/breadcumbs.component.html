@@ -1,3 +1,12 @@
 <div class="Rectangle">
     <p class="Courses">Courses</p>
+    <ol class="breadcrumb">
+        <li *ngFor="let breadcrumb of breadcrumbs$ | async"
+            class="breadcrumb-item">
+            <p>{{ breadcrumb.label }}</p>
+            <!-- <a [routerLink]="[breadcrumb.url, breadcrumb.params]">
+            {{ breadcrumb.label }}
+            </a> -->
+        </li>
+    </ol>
 </div>

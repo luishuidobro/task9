@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { AuthorizacionService } from "./core/authorization_service"
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,18 +13,30 @@ export class AppComponent implements OnInit, OnChanges{
   isAutenticated: boolean = false;
 
   constructor(private authorizationService: AuthorizacionService,
-    private router: Router) {
+    private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(){
     console.log(this.authorizationService.getUserInfo);
     this.isAutenticated = this.authorizationService.isAuthenticated();
-    this.router.navigate(['courses']);
+    console.log(window.location.href);
+    
+    if (this.isAutenticated) {
+      this.router.navigate(['courses']);
+    } 
+    else {
+      this.router.navigate(['login']);
+    }
   }
 
   ngOnChanges() {
     console.log(this.authorizationService.getUserInfo);
     this.isAutenticated = this.authorizationService.isAuthenticated();
-    this.router.navigate(['courses']);
+    if (this.isAutenticated) {
+      this.router.navigate(['courses']);
+    } 
+    else {
+      this.router.navigate(['login']);
+    }
   }
 }

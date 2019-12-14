@@ -7,10 +7,12 @@
             <div class="title">
                 <p>
                     <span id="title" class="Video-Course-1-Name">{{course.title | uppercase}}</span>
-                    <span id="duration" class="h-28-min" alignment="right">{{course.duration | myTime}}</span>
+                    <!-- <span id="duration" class="h-28-min" alignment="right">{{course.duration | myTime}}</span>
                     <span id="date" class="-Nov-2018" alignment="right">
                         {{course.creationDate  | date:'dd MMMM yyyy'}}
-                    </span>
+                    </span> -->
+                    <app-duration [duration] = 'course.duration'></app-duration>
+                    <app-date [creationDate] = 'course.creationDate'></app-date>
                     <span id="topRated" *ngIf="course.topRated">
                         <i class="far fa-star"></i>
                     </span>
@@ -22,7 +24,8 @@
                 {{course.description}}
                 </span>
                 <span>
-                    <button type="button" id="edit-button" class="edit-button">Edit</button>
+                    <button type="button" id="edit-button" 
+                    class="edit-button" (click)="updateItem()">Edit</button>
                 </span>
                 <span>
                     <button type="button" id="delete-button" 

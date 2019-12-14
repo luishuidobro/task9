@@ -1,7 +1,11 @@
+<app-breadcumbs></app-breadcumbs>
+<app-search></app-search>
+
 <div class="List-course" *ngIf="courseItems.length > 0">
     <app-course-item *ngFor="let course of courseItems | orderBy:'creationDate'" 
     [course] = "course" 
-    (myDeletedCourse)="showDeleteMessage($event)"></app-course-item>
+    (myDeletedCourse)="showDeleteMessage($event)"
+    (myEditCourse)="editCourse($event)"></app-course-item>
 </div>
 
 <div class="Rectangle" *ngIf="courseItems.length > 0">

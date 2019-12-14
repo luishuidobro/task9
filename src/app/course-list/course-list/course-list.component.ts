@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Course } from '../../shared/models/course-model';
 import { CourseService } from '../../shared/services/course.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-list',
@@ -9,7 +10,7 @@ import { CourseService } from '../../shared/services/course.service';
 })
 export class CourseListComponent implements OnChanges, OnInit {
   public courseItems: Course[] = [];
-  constructor(private courseService: CourseService) {
+  constructor(private courseService: CourseService, private router: Router) {
     console.log("Here is the constructor.");
    }
 
@@ -27,5 +28,10 @@ export class CourseListComponent implements OnChanges, OnInit {
     if (window.confirm('Are sure you want to delete this item ?')){
       this.courseService.removeItem(event);
     }
+  }
+
+  editCourse(event) {
+    console.log(event);
+    this.router.navigate(['courses/',event])
   }
 }
