@@ -8,6 +8,7 @@ import { CourseListModule } from './course-list/course-list.module';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModule } from './login/login.module';
+import { AddEditCourseModule } from './add-edit-course/add-edit-course.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LoginModule } from './login/login.module';
     FormsModule,
     LoginModule,
     BrowserAnimationsModule,
+    AddEditCourseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
