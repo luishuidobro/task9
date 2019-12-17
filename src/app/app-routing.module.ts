@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login/login.component';
 const routes: Routes = [
   {
     path: '', 
-    redirectTo: 'courses', 
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {

@@ -21,22 +21,22 @@ export class AppComponent implements OnInit, OnChanges{
     this.isAutenticated = this.authorizationService.isAuthenticated();
     console.log(window.location.href);
     
-    if (this.isAutenticated) {
-      this.router.navigate(['courses']);
-    } 
-    else {
-      this.router.navigate(['login']);
-    }
+    // if (this.isAutenticated) {
+    //   this.router.navigate(['courses']);
+    // } 
+    // else {
+    //   this.router.navigate(['login']);
+    // }
   }
 
   ngOnChanges() {
     console.log(this.authorizationService.getUserInfo);
     this.isAutenticated = this.authorizationService.isAuthenticated();
-    if (this.isAutenticated) {
-      this.router.navigate(['courses']);
-    } 
-    else {
-      this.router.navigate(['login']);
-    }
+    // if (this.isAutenticated) {
+    //   this.router.navigate(['courses']);
+    // } 
+    // else {
+    //   this.router.navigate(['login']);
+    // }
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthorizacionService } from "../../core/authorization_service"
 import { User } from '../../shared/models/user-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,9 @@ export class LoginComponent implements OnInit {
   public email = "";
   public password = "";
 
-  constructor(private authorizationService: AuthorizacionService) { }
+  constructor(
+    private authorizationService: AuthorizacionService, 
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -25,7 +28,10 @@ export class LoginComponent implements OnInit {
     password: this.password
     } as User;
     this.authorizationService.login(user);
-    window.location.reload();
+    // window.location.reload();
+    if (this.authorizationService.isAuthenticated) {
+      this.router.navigate(['courses']);
+    }
   }
 
 }
