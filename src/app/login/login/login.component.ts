@@ -23,34 +23,30 @@ export class LoginComponent implements OnInit {
 
   Login() {
     const user = {
-    // id: 0,
-    // firstName: 'Luis',
-    // lastName: 'Huidobro',
-    email: this.email,
-    password: this.password
+      email: this.email,
+      password: this.password
     } as User;
-    // this.authorizationService.login(user);
-    // window.location.reload();
     const loginRequest = {
       "login": this.email,
       "password": this.password
     };
     this.httpClient.post('http://localhost:3004/auth/login/', loginRequest)
-    .subscribe((token) => {
-      this.authorizationService.login(token);
-      this.httpClient.post('http://localhost:3004/auth/userinfo',token)
-      .subscribe((user) =>{console.log("Authorized")},
-      (err) => {console.log(err)});
-    },
-    (error: HttpErrorResponse) => {
-      console.log(error);
-      this.email = "";
-      this.password = "";
-      this.router.navigate(['login']);
-    });
-    if (this.authorizationService.isAuthenticated) {
-      this.router.navigate(['courses']);
-    }
+    .subscribe(
+      (token) => {
+        this.authorizationService.login(token);
+          this.httpClient.post('http://localhost:3004/auth/userinfo',token)
+          .subscribe((user) =>{
+            console.log("Authorized");
+            if (this.authorizationService.isAuthenticated) {
+              this.router.navigate(['courses']);
+            }
+          },
+          (err) => {console.log(err)});
+      },
+      (error) => {
+        console.log(error);
+        this.email = "";
+        this.password = "";
+      });
   }
-
 }

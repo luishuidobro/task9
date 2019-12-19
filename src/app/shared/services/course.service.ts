@@ -87,8 +87,22 @@ export class CourseService {
   }
 
   updateCourse(newCourse: Course) {
-    let itemIndex = this.courses.findIndex(item => item.id === newCourse.id);
-    this.courses[itemIndex] = newCourse;
+    // let itemIndex = this.courses.findIndex(item => item.id === newCourse.id);
+    // this.courses[itemIndex] = newCourse;
+    const courseRequest = {
+      id: newCourse.id,
+      name: newCourse.name,
+      description: newCourse.description,
+      date: newCourse.date,
+      length: newCourse.length,
+      authors: newCourse.authors,
+      isTopRated: newCourse.isTopRated
+    }
+    // this.courses.push(newCourse);
+    const baseUrl = 'http://localhost:3004/courses';
+    this.httpClient.patch<Course>(`${baseUrl}/${newCourse.id}`,courseRequest)
+    .subscribe((course) => {console.log("Course updated" + newCourse.id)},
+    (err) => {console.log(err)});
   }
 
   removeItem(courseId: number) {

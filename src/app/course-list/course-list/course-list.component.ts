@@ -3,6 +3,7 @@ import { Course } from '../../shared/models/course-model';
 import { CourseService } from '../../shared/services/course.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AuthorizacionService } from "../../core/authorization_service"
 
 @Component({
   selector: 'app-course-list',
@@ -11,11 +12,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CourseListComponent implements OnChanges, OnInit {
   public courseItems: Course[] = [];
+  isAuthenticated = false;
   constructor(
     private courseService: CourseService, 
     private router: Router, 
-    private httpClient: HttpClient) {
+    private httpClient: HttpClient,
+    private authorizacionService: AuthorizacionService) {
     console.log("Here is the constructor.");
+    this.isAuthenticated = this.authorizacionService.isAuthenticated();
+    if (!this.isAuthenticated) {
+      this.router.navigate(['login']);
+    }
+    this.courseItems = this.courseService.getFirstsCourses();
    }
 
   ngOnInit() {
@@ -37,7 +45,7 @@ export class CourseListComponent implements OnChanges, OnInit {
 
   editCourse(event) {
     console.log(event);
-    this.router.navigate(['courses/',event])
+    this.router.navigate(['courses/',event]);
   }
 
   LoadMore() {
