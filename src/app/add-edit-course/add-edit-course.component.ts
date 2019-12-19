@@ -10,9 +10,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AddEditCourseComponent implements OnInit {
 
-  title = "";
+  name = "";
   description = "";
-  duration = 0;
+  length = 0;
   date = new Date();
   authors = "";
 
@@ -28,10 +28,10 @@ export class AddEditCourseComponent implements OnInit {
     if (this.currentId !== 0) {
       const updateCourse = this.courseService.getItemById(this.currentId);
       if (updateCourse) {
-        this.title = updateCourse.title;
+        this.name = updateCourse.name;
         this.description = updateCourse.description;
-        this.duration = updateCourse.duration;
-        this.date = updateCourse.creationDate;
+        this.length = updateCourse.length;
+        this.date = updateCourse.date;
         this.isEdition = true;
       }
     }
@@ -39,14 +39,22 @@ export class AddEditCourseComponent implements OnInit {
 
   AddNewCourse() {
     const newCourse = {
-      title: this.title,
-      creationDate: this.date,
-      duration: this.duration,
+      id: this.currentId > 0 ? this.currentId : 0,
+      name: this.name,
+      date: this.date,
+      length: this.length,
       description: this.description,
-      topRated: true
+      isTopRated: true,
+      authors: [
+        {
+          id: 0,
+          name: this.authors,
+          lastName: ''
+        }
+      ]
     } as Course;
     if(this.isEdition) {
-      newCourse.id = this.currentId;
+      // newCourse.id = this.currentId;
       this.courseService.updateCourse(newCourse);
     } else {
       this.courseService.createCourse(newCourse);
@@ -61,9 +69,9 @@ export class AddEditCourseComponent implements OnInit {
   }
 
   clearFields() {
-    this.title = "";
+    this.name = "";
     this.description = "";
-    this.duration = 0;
+    this.length = 0;
     this.date = new Date();
     this.authors = "";
   }

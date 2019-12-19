@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Course } from '../../shared/models/course-model';
 import { CourseService } from '../../shared/services/course.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-course-list',
@@ -10,16 +11,20 @@ import { Router } from '@angular/router';
 })
 export class CourseListComponent implements OnChanges, OnInit {
   public courseItems: Course[] = [];
-  constructor(private courseService: CourseService, private router: Router) {
+  constructor(
+    private courseService: CourseService, 
+    private router: Router, 
+    private httpClient: HttpClient) {
     console.log("Here is the constructor.");
    }
 
   ngOnInit() {
-    this.courseItems = this.courseService.getCourses();
+    this.courseItems = this.courseService.getFirstsCourses();
     console.log("Here is OnInit method.");
   }
   
   ngOnChanges() {
+    this.courseItems = this.courseService.getCourses();
     console.log("Here is the OnChanges method.");
   }
 
@@ -33,5 +38,22 @@ export class CourseListComponent implements OnChanges, OnInit {
   editCourse(event) {
     console.log(event);
     this.router.navigate(['courses/',event])
+  }
+
+  LoadMore() {
+    // this.httpClient.get<Course[]>('http://localhost:3004/courses/')
+    // .subscribe((courses) => {
+    //   this.courseItems = courses;
+    //   console.log(courses);
+    // });
+    this.courseItems= this.courseService.getCourses();
+  }
+
+  search(event) {
+    this.httpClient.get<Course[]>('http://localhost:3004/courses/',
+    {params: {textFragment: event}})
+    .subscribe((courses) => {
+      this.courseItems = courses;
+    });
   }
 }

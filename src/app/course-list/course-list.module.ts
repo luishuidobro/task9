@@ -9,6 +9,7 @@ import { DirectivesModule } from '../shared/directives/directives.module';
 import { CoreModule } from '../core/core.module';
 import { DateComponent } from './date/date.component';
 import { DurationComponent } from './duration/duration.component';
+import { HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [CourseListComponent, CourseItemComponent, SearchComponent, DateComponent, DurationComponent],
@@ -18,6 +19,7 @@ import { DurationComponent } from './duration/duration.component';
     PipesModule,
     DirectivesModule,
     CoreModule,
+    HttpClientModule,
   ],
   exports: [
     CourseListComponent,

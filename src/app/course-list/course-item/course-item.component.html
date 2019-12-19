@@ -1,19 +1,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-<div class="Rectangle" [appChangeBorder]="course.creationDate" [ngClass]="{'highlight': course.topRated}">
+<div class="Rectangle" [appChangeBorder]="course.date" [ngClass]="{'highlight': course.isTopRated}">
     <div class="row">
         <div>
             <div class="title">
                 <p>
-                    <span id="title" class="Video-Course-1-Name">{{course.title | uppercase}}</span>
+                    <span id="title" class="Video-Course-1-Name">{{course.name | uppercase}}</span>
                     <!-- <span id="duration" class="h-28-min" alignment="right">{{course.duration | myTime}}</span>
                     <span id="date" class="-Nov-2018" alignment="right">
                         {{course.creationDate  | date:'dd MMMM yyyy'}}
                     </span> -->
-                    <app-duration [duration] = 'course.duration'></app-duration>
-                    <app-date [creationDate] = 'course.creationDate'></app-date>
-                    <span id="topRated" *ngIf="course.topRated">
+                    <app-duration [duration] = 'course.length'></app-duration>
+                    <app-date [creationDate] = 'course.date'></app-date>
+                    <span id="topRated" *ngIf="course.isTopRated">
                         <i class="far fa-star"></i>
                     </span>
                 </p>

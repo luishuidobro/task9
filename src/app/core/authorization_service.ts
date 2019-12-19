@@ -8,7 +8,11 @@ export class AuthorizacionService {
 
   constructor() { }
 
-  login(user: User) {
+  // login(user: User) {
+  //   localStorage.setItem("user", JSON.stringify(user));
+  // }
+
+  login(user: Object) {
     localStorage.setItem("user", JSON.stringify(user));
   }
 

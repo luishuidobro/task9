@@ -1,15 +1,15 @@
 <app-breadcumbs></app-breadcumbs>
-<app-search></app-search>
+<app-search (mySearch)="search($event)"></app-search>
 
 <div class="List-course" *ngIf="courseItems.length > 0">
-    <app-course-item *ngFor="let course of courseItems | orderBy:'creationDate'" 
+    <app-course-item *ngFor="let course of courseItems | orderBy:'date'" 
     [course] = "course" 
     (myDeletedCourse)="showDeleteMessage($event)"
     (myEditCourse)="editCourse($event)"></app-course-item>
 </div>
 
 <div class="Rectangle" *ngIf="courseItems.length > 0">
-    <p class="LOAD-MORE">LOAD MORE</p>
+    <p class="LOAD-MORE" (click)="LoadMore()">LOAD MORE</p>
 </div>
 
 <div class="Rectangle" *ngIf="courseItems.length === 0">

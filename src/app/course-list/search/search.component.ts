@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-search',
@@ -7,15 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  public search = "";
+  @Output() mySearch = new EventEmitter();
+  public search ="";
 
-  constructor(private readonly router: Router) { }
+  constructor(private readonly router: Router,
+    private httpClient: HttpClient) { }
 
   ngOnInit() {
   }
 
   searching() {
     console.log(this.search);
+    this.mySearch.emit(this.search);
   }
 
   addCourse() {
