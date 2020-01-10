@@ -4,6 +4,7 @@ import { CourseService } from '../../shared/services/course.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthorizacionService } from "../../shared/services/authorization_service"
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-course-list',
@@ -12,6 +13,7 @@ import { AuthorizacionService } from "../../shared/services/authorization_servic
 })
 export class CourseListComponent implements OnInit {
   public courseItems: Course[] = [];
+  courses$ = new Observable<Course[]>();
   isAuthenticated = false;
   constructor(
     private courseService: CourseService, 
@@ -23,18 +25,21 @@ export class CourseListComponent implements OnInit {
     if (!this.isAuthenticated) {
       this.router.navigate(['login']);
     }
-    this.courseItems = this.courseService.getFirstsCourses();
+    this.courses$ = this.courseService.getFirstsCourses();
+    this.courses$.subscribe((courses) => this.courseItems = courses);
    }
 
   ngOnInit() {
-    this.courseItems = this.courseService.getFirstsCourses();
+    // this.courses$ = this.courseService.getFirstsCourses();
+    // this.courses$.subscribe((courses) => this.courseItems = courses);
     console.log("Here is OnInit method.");
   }
   
-  // ngOnChanges() {
-  //   this.courseItems = this.courseService.getCourses();
-  //   console.log("Here is the OnChanges method.");
-  // }
+  ngOnChanges() {
+    this.courseService.getCourses().subscribe((courses) => this.courseItems = courses);
+    this
+    console.log("Here is the OnChanges method.");
+  }
 
   showDeleteMessage(event) {
     console.log(event);
@@ -54,7 +59,7 @@ export class CourseListComponent implements OnInit {
     //   this.courseItems = courses;
     //   console.log(courses);
     // });
-    this.courseItems= this.courseService.getCourses();
+    this.courseService.getCourses().subscribe((courses) => this.courseItems = courses);
   }
 
   search(event) {

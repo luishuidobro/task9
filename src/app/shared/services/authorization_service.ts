@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user-model';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizacionService {
-
+  isLogged$ = new BehaviorSubject<boolean>(localStorage.getItem("user") !== null);
   constructor(private router: Router,
     private httpClient: HttpClient) { }
 
@@ -26,6 +26,8 @@ export class AuthorizacionService {
       (token) => {
         // this.authorizationService.login(token);
         localStorage.setItem("user", JSON.stringify(token));
+        localStorage.setItem("userName", JSON.stringify(loginRequest.login));
+        this.isLogged$.next(true);
           this.httpClient.post('http://localhost:3004/auth/userinfo',token)
           .subscribe((user) =>{
             console.log("Authorized");
@@ -42,6 +44,7 @@ export class AuthorizacionService {
 
   logOut() {
     localStorage.removeItem("user");
+    this.isLogged$.next(false);
   }
 
   isAuthenticated(): boolean {
@@ -51,7 +54,7 @@ export class AuthorizacionService {
   getUserInfo(): any {
     const userInfoObservable = new Observable(observer => {
       setTimeout(() => {
-        observer.next(JSON.parse(localStorage.getItem("user")));
+        observer.next(JSON.parse(localStorage.getItem("userName")));
       }, 500);
     });
     return userInfoObservable;

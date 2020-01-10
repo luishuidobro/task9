@@ -18,15 +18,13 @@ export class SearchComponent implements OnInit {
   constructor(private readonly router: Router,
     private httpClient: HttpClient) {
       this.mySearch$.pipe(
-      filter(text => !!text && text.length > 3),
+      filter(text => !text || text.length > 3),
       debounceTime(1000),
       distinctUntilChanged(),
       switchMap((search) => { 
         return this.httpClient.get<Course[]>('http://localhost:3004/courses/',
         {params: {textFragment: search}});
       })).subscribe(this.filteredCourses);
-
-      // this.mySearch$.subscribe(console.log);
     }
 
   ngOnInit() {

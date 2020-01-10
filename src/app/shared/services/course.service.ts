@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Course } from '../models/course-model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -45,21 +46,21 @@ export class CourseService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getFirstsCourses(): Course[] {
-    this.httpClient.get<Course[]>('http://localhost:3004/courses/', 
-    {params: {start: '0', count:'5'}})
-    .subscribe((courses) => {
-      this.courses = courses;
-    });
-    return this.courses;
+  getFirstsCourses(): Observable<Course[]> {
+    return this.httpClient.get<Course[]>('http://localhost:3004/courses/', 
+    {params: {start: '0', count:'5'}});
+    // .subscribe((courses) => {
+    //   this.courses = courses;
+    // });
+    // return this.courses;
   }
 
-  getCourses(): Course[] {
-    this.httpClient.get<Course[]>('http://localhost:3004/courses/')
-    .subscribe((courses) => {
-      this.courses = courses;
-    });
-    return this.courses;
+  getCourses(): Observable <Course[]> {
+    return this.httpClient.get<Course[]>('http://localhost:3004/courses/');
+    // .subscribe((courses) => {
+    //   this.courses = courses;
+    // });
+    // return this.courses;
   }
 
   createCourse(newCourse: Course) {
@@ -113,6 +114,6 @@ export class CourseService {
     this.httpClient.delete<void>(`${baseUrl}/${courseId}`)
     .subscribe(() => { console.log('Course deleted: '+courseId)},
     (error) => {console.log(error)});
-    this.courses = this.getCourses();
+    // this.courses = this.getCourses();
   }
 }
