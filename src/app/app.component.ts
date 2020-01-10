@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { AuthorizacionService } from "./core/authorization_service"
+import { AuthorizacionService } from "./shared/services/authorization_service"
 import { Router, ActivatedRoute } from '@angular/router';
+// import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,9 @@ export class AppComponent implements OnInit, OnChanges{
   isAutenticated: boolean = false;
 
   constructor(private authorizationService: AuthorizacionService,
-    private router: Router, private route: ActivatedRoute) {
+    private router: Router, private route: ActivatedRoute
+    // , private http: HttpClient
+    ) {
   }
 
   ngOnInit(){
@@ -28,6 +31,11 @@ export class AppComponent implements OnInit, OnChanges{
     //   this.router.navigate(['login']);
     // }
   }
+
+  // callApi() {
+  //   this.http.get('https://reqres.in/api/users?page=2')
+  //   .subscribe(data => { console.log(data);})
+  // }
 
   ngOnChanges() {
     console.log(this.authorizationService.getUserInfo);

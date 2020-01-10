@@ -1,5 +1,5 @@
 <app-breadcumbs></app-breadcumbs>
-<app-search (mySearch)="search($event)"></app-search>
+<app-search (filteredCourses)="search($event)"></app-search>
 
 <div class="List-course" *ngIf="courseItems.length > 0">
     <app-course-item *ngFor="let course of courseItems | orderBy:'date'" 

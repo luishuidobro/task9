@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorizacionService } from "../../core/authorization_service"
+import { AuthorizacionService } from "../../shared/services/authorization_service"
 import { User } from '../../shared/models/user-model';
-import { Router } from '@angular/router';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-login',
@@ -14,9 +13,7 @@ export class LoginComponent implements OnInit {
   public password = "";
 
   constructor(
-    private authorizationService: AuthorizacionService, 
-    private router: Router,
-    private httpClient: HttpClient) { }
+    private authorizationService: AuthorizacionService) { }
 
   ngOnInit() {
   }
@@ -26,27 +23,6 @@ export class LoginComponent implements OnInit {
       email: this.email,
       password: this.password
     } as User;
-    const loginRequest = {
-      "login": this.email,
-      "password": this.password
-    };
-    this.httpClient.post('http://localhost:3004/auth/login/', loginRequest)
-    .subscribe(
-      (token) => {
-        this.authorizationService.login(token);
-          this.httpClient.post('http://localhost:3004/auth/userinfo',token)
-          .subscribe((user) =>{
-            console.log("Authorized");
-            if (this.authorizationService.isAuthenticated) {
-              this.router.navigate(['courses']);
-            }
-          },
-          (err) => {console.log(err)});
-      },
-      (error) => {
-        console.log(error);
-        this.email = "";
-        this.password = "";
-      });
+    this.authorizationService.login(user);
   }
 }

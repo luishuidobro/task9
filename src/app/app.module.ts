@@ -9,6 +9,10 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModule } from './login/login.module';
 import { AddEditCourseModule } from './add-edit-course/add-edit-course.module';
+import { SharedModule } from './shared/shared.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
+import { LoaderService } from './shared/services/loader.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +26,17 @@ import { AddEditCourseModule } from './add-edit-course/add-edit-course.module';
     FormsModule,
     LoginModule,
     BrowserAnimationsModule,
-    AddEditCourseModule
+    AddEditCourseModule,
+    SharedModule
   ],
-  providers: [],
+  providers: [
+    LoaderService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

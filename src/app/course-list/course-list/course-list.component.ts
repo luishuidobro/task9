@@ -3,14 +3,14 @@ import { Course } from '../../shared/models/course-model';
 import { CourseService } from '../../shared/services/course.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { AuthorizacionService } from "../../core/authorization_service"
+import { AuthorizacionService } from "../../shared/services/authorization_service"
 
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
   styleUrls: ['./course-list.component.scss']
 })
-export class CourseListComponent implements OnChanges, OnInit {
+export class CourseListComponent implements OnInit {
   public courseItems: Course[] = [];
   isAuthenticated = false;
   constructor(
@@ -31,10 +31,10 @@ export class CourseListComponent implements OnChanges, OnInit {
     console.log("Here is OnInit method.");
   }
   
-  ngOnChanges() {
-    this.courseItems = this.courseService.getCourses();
-    console.log("Here is the OnChanges method.");
-  }
+  // ngOnChanges() {
+  //   this.courseItems = this.courseService.getCourses();
+  //   console.log("Here is the OnChanges method.");
+  // }
 
   showDeleteMessage(event) {
     console.log(event);
@@ -58,10 +58,11 @@ export class CourseListComponent implements OnChanges, OnInit {
   }
 
   search(event) {
-    this.httpClient.get<Course[]>('http://localhost:3004/courses/',
-    {params: {textFragment: event}})
-    .subscribe((courses) => {
-      this.courseItems = courses;
-    });
+    // this.httpClient.get<Course[]>('http://localhost:3004/courses/',
+    // {params: {textFragment: event}})
+    // .subscribe((courses) => {
+    //   this.courseItems = courses;
+    // });
+    this.courseItems = event;
   }
 }

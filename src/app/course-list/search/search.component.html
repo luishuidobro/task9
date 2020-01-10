@@ -1,6 +1,6 @@
 <div>
-    <input type="text" id="search" [(ngModel)]="search" placeholder="Text to search">
-    <button type="button" class="search-button" (click)="searching()">Search</button>
+    <input type="text" id="search" [(ngModel)]="search" placeholder="Text to search" (keyup)='mySearch$.next($event.target.value)'>
+    <!-- <button type="button" class="search-button" (click)="searching()">Search</button> -->
 </div>
 <div>
     <button type="button" class="Mask" (click)="addCourse()">+ Add course</button>
